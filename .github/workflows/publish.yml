@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build-format-and-publish-to-pypi:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,5 +28,4 @@ jobs:
       - name: 🚀 Publish
         run: |
           uv build
-
           uv publish --token ${{ secrets.UV_PUBLISH_TOKEN }}
