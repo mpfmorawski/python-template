@@ -81,3 +81,5 @@ docker build -t python-template .
 REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
 python-template   latest    1ded7d260b1c   58 seconds ago   55.4MB
 ```
+
+The image is build using the [`build`](.github/workflows/build.yml) workflow when a new *relaese* is created
