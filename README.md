@@ -6,7 +6,7 @@ Features:
 - [x] 💅 [`ruff`](https://docs.astral.sh/ruff/) for linting and formatting
 - [x] 🧪 [`pytest`](https://docs.pytest.org/en/stable/) 
 - [x] 🧹 [`Makefile`](Makefile) with code quality checks
-- [x] 🐳 Optimized Docker Image
+- [x] 🐳 CI/CD Optimized Docker Image runs when a new *release* is created pushing to gh registry
 - [x] 🦾 GitHub actions:
     - [x] auto publish to [`pypi`](https://pypi.org/) on push on `main`
     - [ ] auto creating a new tag on push on `main`, sync versions
@@ -70,7 +70,7 @@ Tests inside `/tests` are run using [`pytest`](https://docs.pytest.org/en/stable
  In order to publish to [pypi](https://pypi.org/) you need to create a secret called `UV_PUBLISH_TOKEN` with your [pypi access token](https://pypi.org/manage/account/) under **API tokens**.
 
 
-## Docker
+### Docker
 [`Dockerfile`](Dockerfile) contains a multi stage build that uses `--compile-bytecode` to compite your package. For this example, the resulting image is just
 
 ```bash
