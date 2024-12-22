@@ -1,5 +1,8 @@
 from random import choice
 from typing import TypedDict
+import argparse
+
+args = argparse.ArgumentParser()
 
 import requests
 
