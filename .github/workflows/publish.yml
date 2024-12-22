@@ -28,4 +28,5 @@ jobs:
       - name: 🚀 Publish
         run: |
           uv build
-          uv publish --token $UV_PUBLISH_TOKEN
+
+          uv publish --token ${{ secrets.UV_PUBLISH_TOKEN }}
