@@ -1,12 +1,15 @@
 # Python Template 🐍
+[![PyPI version](https://img.shields.io/pypi/v/python-template-zuppif)](https://pypi.org/project/python-template-zuppif/)
+
 A template for a python project for 2025
 
 Features:
-- [x] ⚙️ configuration in a single file [`pyproject.toml`](pyproject.toml)
+- [x] 🛠️ configuration in a single file [`pyproject.toml`](pyproject.toml)
 - [x] 📦 [`uv`](https://docs.astral.sh/uv/) as package manager
 - [x] 💅 [`ruff`](https://docs.astral.sh/ruff/) for linting and formatting
 - [x] 🧪 [`pytest`](https://docs.pytest.org/en/stable/) 
 - [x] 🧹 [`Makefile`](Makefile) with code quality checks
+- [ ] 📚 auto doc generation
 - [x] 🐳 CI/CD Optimized Docker Image runs when a new *release* is created pushing to gh registry
 - [x] 🦾 GitHub actions:
     - [x] auto publish to [`pypi`](https://pypi.org/) on push on `main`

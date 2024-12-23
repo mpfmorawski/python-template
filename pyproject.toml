@@ -1,7 +1,7 @@
 [project]
 # https://docs.astral.sh/uv/concepts/projects/config/
-name = "python-template"
-version = "0.1.1"
+name = "python-template-zuppif"
+version = "0.1.2"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
