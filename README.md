@@ -2,6 +2,7 @@
 A template for a python project for 2025
 
 Features:
+- [x] ⚙️ configuration in a single file [`pyproject.toml`](pyproject.toml)
 - [x] 📦 [`uv`](https://docs.astral.sh/uv/) as package manager
 - [x] 💅 [`ruff`](https://docs.astral.sh/ruff/) for linting and formatting
 - [x] 🧪 [`pytest`](https://docs.pytest.org/en/stable/) 
