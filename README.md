@@ -67,7 +67,7 @@ ruff format
 
 ## CI/CD
 
-### Tets
+### Tests
 Tests inside `/tests` are run using [`pytest`](https://docs.pytest.org/en/stable/) on PR both on `dev` and `main`
 
 ### Publish Package
