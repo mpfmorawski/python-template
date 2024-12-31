@@ -23,9 +23,9 @@ Features:
 To set it up and run
 
 ```bash
-uv venv
 uv sync
 ```
+
 Then
 
 ```bash
@@ -36,14 +36,6 @@ Will output a random joke
 
 ```
 Why did the cow in the pasture get promoted at work? ...  Because he is OUT-STANDING in his field!
-```
-
-### Development
-
-You can install in `editable` mode the library
-
-```bash
-uv pip install -e .
 ```
 
 You can now run, for example, a function defined as `scripts` in the [`pyproject.toml`](pyproject.toml)
