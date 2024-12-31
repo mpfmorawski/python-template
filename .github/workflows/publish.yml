@@ -6,7 +6,12 @@ on:
 jobs:
   build-format-and-publish-to-pypi:
     runs-on: ubuntu-latest
-
+    # FROM https://github.com/pypa/gh-action-pypi-publish
+    environment:
+      name: pypi
+      url: https://pypi.org/p/python-template-zuppif
+    permissions:
+      id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
@@ -25,7 +30,8 @@ jobs:
       - name: 💅 Format
         run: uv run ruff format
 
+      - name: 🦾 Build
+        run: uv build
+
       - name: 🚀 Publish
-        run: |
-          uv build
-          uv publish --token ${{ secrets.UV_PUBLISH_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1

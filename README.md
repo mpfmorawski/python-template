@@ -23,9 +23,9 @@ Features:
 To set it up and run
 
 ```bash
-uv venv
 uv sync
 ```
+
 Then
 
 ```bash
@@ -36,14 +36,6 @@ Will output a random joke
 
 ```
 Why did the cow in the pasture get promoted at work? ...  Because he is OUT-STANDING in his field!
-```
-
-### Development
-
-You can install in `editable` mode the library
-
-```bash
-uv pip install -e .
 ```
 
 You can now run, for example, a function defined as `scripts` in the [`pyproject.toml`](pyproject.toml)
@@ -71,7 +63,11 @@ ruff format
 Tests inside `/tests` are run using [`pytest`](https://docs.pytest.org/en/stable/) on PR both on `dev` and `main`
 
 ### Publish Package
- In order to publish to [pypi](https://pypi.org/) you need to create a secret called `UV_PUBLISH_TOKEN` with your [pypi access token](https://pypi.org/manage/account/) under **API tokens**.
+ In order to publish to [pypi](https://pypi.org/) you need to create a publisher on pypi.
+
+This is explained [here](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/) and [here](https://docs.pypi.org/trusted-publishers/) 
+
+In practice go your pypi project -> Manage Project -> Publishing, scroll and "add a new publisher"
 
 
 ### Docker
