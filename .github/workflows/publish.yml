@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - "fix/#8"
 jobs:
   build-format-and-publish-to-pypi:
     runs-on: ubuntu-latest
