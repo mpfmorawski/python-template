@@ -21,8 +21,6 @@ packages = ["src/jokes"]
 # https://docs.astral.sh/ruff/configuration/
 target-version = "py312"
 
-[tool.uv.workspace]
-members = ["diocane"]
 
 [project.scripts]
 # will run the function by just typing `make_me_laugh` in the cli
