@@ -1,0 +1,58 @@
+name: Create tag on version change
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - pyproject.toml
+      - .github/workflows/create_tag.yml
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Create virtual environment
+        run: |
+          uv venv
+
+      - name: Get version from pyproject.toml
+        id: get-version
+        run: |
+          uv add tomli
+          VERSION=$(uv run python -c "import tomli; print(tomli.loads(open('pyproject.toml', 'r').read())['project']['version'])")
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "🟢 Version extracted from pyproject.toml: $VERSION"
+
+      - name: Check if tag with version from pyproject.toml already exists
+        id: check-tag
+        run: |
+          git fetch --tags
+          TAG_EXISTS=$(git tag --list "v${{ steps.get-version.outputs.VERSION }}")
+          if [ -n "$TAG_EXISTS" ]; then
+            echo "⚫ Tag v${{ steps.get-version.outputs.VERSION }} already exists. Skipping tag creation."
+            echo "SKIP_CREATING_TAG=true" >> $GITHUB_ENV
+          else
+            echo "🟢 Tag v${{ steps.get-version.outputs.VERSION }} does not exist. Proceeding with tag creation."
+            echo "SKIP_CREATING_TAG=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create tag with version from pyproject.toml
+        if: env.SKIP_CREATING_TAG == 'false'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git tag -a "v${{ steps.get-version.outputs.VERSION }}" -m "v${{ steps.get-version.outputs.VERSION }}"
+          git push origin "v${{ steps.get-version.outputs.VERSION }}"
+          echo "🟢 Tag v${{ steps.get-version.outputs.VERSION }} created and pushed to origin."
